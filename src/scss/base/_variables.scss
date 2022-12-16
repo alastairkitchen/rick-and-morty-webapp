@@ -1,0 +1,40 @@
+// ---------------------------
+// colours
+// ---------------------------
+
+$white: #ffffff;
+$black: #000000;
+$lightGrey: #F8F8F8;
+$grey: #3A3939;
+$greyHover: #707070;
+$orange: #D97D00;
+$lightOrange: #F8A300;
+
+$fadeOrange: #FFEED6;
+$yellow: #F8E471;
+
+$darkGreyFade: rgba(0, 0, 0, 0.40);
+
+// fonts
+$fontWeightLight: 300;
+$fontWeightRegular: 400;
+$fontWeightSemiBold: 500;
+$fontWeightBold: 600;
+
+$headerFontFamily: 'Barlow Condensed', sans-serif;
+
+$containerWidth: 1400px;
+$containerLgWidth: 1800px;
+$containerSmWidth: 1024px;
+$containerXsWidth: 795px;
+$containerXxsWidth: 700px;
+
+$siteSpacer: 15px;
+$siteSpacerLg: 30px;
+$siteSpacerXl: 40px;
+
+$gutters: (
+	"mobile": 25px,
+	"desktop": 20px,
+	"desktop-large": 30px
+);

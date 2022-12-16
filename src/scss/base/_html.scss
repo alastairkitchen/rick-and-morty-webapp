@@ -1,0 +1,51 @@
+html {
+  font-size: 16px;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus {
+  outline: $black solid 1px;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+ul {
+  margin: 0;
+  margin-bottom: 15px;
+  padding-left: 1.5em;
+
+  li::marker {
+    color: $yellow;
+    font-size: 1.5em;
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+
+.site-body {
+  min-height: 100vh;
+  height: 100%;
+  background: blue;
+  padding: 40px;
+}
+
+.site-root {
+  max-width: 1000px;
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
+}

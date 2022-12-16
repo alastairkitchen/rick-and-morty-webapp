@@ -1,0 +1,52 @@
+
+html {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headerFontFamily;
+  font-weight: $fontWeightLight;
+  margin: 0;
+}
+
+.h2 {
+  font-family: $headerFontFamily;
+  font-size: 32px;
+  border-bottom: 3px solid $lightOrange;
+  display: inline;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  @include fluid-type(24px, 32px);
+}
+
+.h3 {
+  font-family: $headerFontFamily;
+  font-weight: $fontWeightBold;
+  @include fluid-type(18px, 24px);
+}
+
+.bold-header {
+  font-weight: $fontWeightBold;
+  @include fluid-type(17px, 18px);
+}
+
+.bold {
+  font-weight: $fontWeightBold;
+}
+
+.font-spacer {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+.extra-paragraph-margin {
+  margin-bottom: 20px;
+}
