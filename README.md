@@ -1,7 +1,7 @@
 # Rick and morty webapp
 
 Webapp built in react that displays Rick and Morty characters and episodes.
-- Project uses open source [Rick and Morty Api(https://rickandmortyapi.com/)
+- Project uses open source [Rick and Morty Api](https://rickandmortyapi.com/)
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
