@@ -1,5 +1,10 @@
+export interface LayoutType {
+	children?: React.ReactNode,
+	props?: HeaderType
+}
+
 export interface HeaderType {
-	title: string
+	title?: string
 }
 
 export interface Character {

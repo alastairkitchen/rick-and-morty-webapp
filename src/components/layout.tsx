@@ -1,15 +1,16 @@
-import { HeaderType } from '../types/index';
+import * as React from 'react';
+import { LayoutType } from '../types/index';
+import Header from './header';
 
-function Layout(props: HeaderType) {
+const Layout = ({ children, props }: LayoutType): React.ReactElement => {
 	return (
-		<div>
-			<header className="App-header">
-				<img alt="rick and morty" src="https://via.placeholder.com/1800x400"></img>
-			</header>
-			<h1>{props.title}</h1>
+		<div className="site-wrapper">
+			<Header title={props?.title} />
+			{children}
 		</div>
-	);
+	)
 }
+
 
 export default Layout;
 

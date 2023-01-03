@@ -18,7 +18,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.4",
     "react-scripts": "5.0.1",
-    "rickmortyapi": "^1.0.0",
+    "rickmortyapi": "^2.0.0",
     "sass": "^1.56.1",
     "sass-mq": "^6.0.0",
     "stream-http": "^3.2.0",
