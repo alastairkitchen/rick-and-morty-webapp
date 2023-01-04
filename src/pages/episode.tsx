@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { getEpisode, getCharacter } from 'rickmortyapi'
 import { Link, useParams } from "react-router-dom";
-import Header from "../components/header";
 import { Episode, Character } from 'rickmortyapi/dist/interfaces'
 import AvatarCard from '../components/AvatarCard';
+import Layout from '../components/layout';
 
 function Episodes() {
 
@@ -34,8 +34,7 @@ function Episodes() {
 	}
 
 	return (
-		<div className="site-wrapper">
-			<Header title={`Name ${episode?.name}`} />
+		<Layout title={`Name ${episode?.name}`}>
 			<Link to="/episodes/season/1/">Back</Link>
 
 			<p>Air Date {episode?.air_date}</p>
@@ -47,7 +46,8 @@ function Episodes() {
 					<AvatarCard key={i} {...character} />
 				) : <p>no results</p>
 			}
-		</div>
+		</Layout>
+
 	);
 }
 

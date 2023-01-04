@@ -34,18 +34,30 @@ address {
   font-style: normal;
 }
 
+input:is([type="text"], [type="date"], [type="email"], [type="month"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="url"], [type="week"]) {
+  height: 40px;
+}
+
+.svg {
+  fill: currentcolor;
+  stroke: currentcolor;
+}
 
 .site-body {
   min-height: 100vh;
   height: 100%;
-  background: blue;
+  background: #00d1cb;
   padding: 40px;
 }
 
 .site-root {
   max-width: 1000px;
-  background-color: white;
   margin: 0 auto;
   border-radius: 5px;
   overflow: hidden;
+}
+
+.site-content {
+  background-color: white;
+  padding: 15px;
 }

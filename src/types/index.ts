@@ -1,10 +1,14 @@
-export interface LayoutType {
+export interface LayoutProps {
 	children?: React.ReactNode,
-	props?: HeaderType
+	title?: string,
+	imageUrl?: string,
 }
 
-export interface HeaderType {
-	title?: string
+export interface HeaderProps {
+}
+
+export interface HeroProps {
+	imageUrl?: string
 }
 
 export interface Character {

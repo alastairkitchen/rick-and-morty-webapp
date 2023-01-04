@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { getEpisodes } from 'rickmortyapi'
 import { Link } from "react-router-dom";
+import Layout from '../components/layout';
 
 function Episodes() {
 
@@ -17,11 +18,7 @@ function Episodes() {
 
 
 	return (
-		<div className="site-wrapper">
-			<header className="App-header">
-				<img alt="rick and morty" src="https://via.placeholder.com/1800x400"></img>
-			</header>
-			<p>episodes</p>
+		<Layout title="Episodes">
 			<p>
 				<Link to="/episodes/season/1">Season 1</Link>
 			</p>
@@ -37,7 +34,7 @@ function Episodes() {
 			<p>
 				<Link to="/episodes/season/5">Season 5</Link>
 			</p>
-		</div>
+		</Layout>
 	);
 }
 

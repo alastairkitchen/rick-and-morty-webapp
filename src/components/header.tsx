@@ -1,13 +1,20 @@
-import { HeaderType } from '../types/index';
+import { Link } from 'react-router-dom'
 
-function Header(props: HeaderType) {
+
+function Header() {
 	return (
-		<div>
-			<header className="App-header">
-				<img alt="rick and morty" src="https://via.placeholder.com/1800x400"></img>
+		<>
+			<header className="header">
+				<Link to='/'><img className="header__image" alt="rick and morty" src="/rick-and-morty-silhouette.jpg"></img></Link>
+				<nav>
+					<ul className="navigation">
+						<li><Link to='/' className="navigation__anchor">Home</Link></li>
+						<li><Link to='/characters' className="navigation__anchor">Characters</Link></li>
+						<li><Link to='/episodes' className="navigation__anchor">Episodes</Link></li>
+					</ul>
+				</nav>
 			</header>
-			<h1>{props.title}</h1>
-		</div>
+		</>
 	);
 }
 

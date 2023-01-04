@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import Header from "../components/header";
 import { getEpisodes } from 'rickmortyapi'
 import { Episode } from 'rickmortyapi/dist/interfaces'
+import Layout from '../components/layout';
 
 
 function Season() {
@@ -25,13 +25,11 @@ function Season() {
 	}
 
 	return (
-		<div className="site-wrapper">
-			<Header title={`Season ${params.seasonId}`} />
+		<Layout title={`Season ${params.seasonId}`}>
 			<p>
 				<Link to="/episodes">Back</Link>
 			</p>
 			<p>episodes</p>
-
 			<table>
 				<thead>
 					<tr>
@@ -52,7 +50,7 @@ function Season() {
 					)}
 				</tbody>
 			</table>
-		</div>
+		</Layout>
 	);
 }
 

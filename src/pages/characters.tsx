@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import AvatarCard from '../components/AvatarCard';
 import { Character } from '../types/index';
+import Layout from '../components/layout';
+import { ReactComponent as MagnifyingIcon } from '../icons/magnifying-glass.svg';
 
 
 function Characters() {
@@ -84,19 +86,12 @@ function Characters() {
 		clearTimeout(characterTimeout);
 	}
 
-	function handleKeyDown() {
-
-
-
-	}
-
 	return (
-		<div className="site-wrapper">
-			<header className="App-header">
-				<img alt="rick and morty" src="https://via.placeholder.com/1800x400"></img>
-			</header>
-			<p>characters</p>
-			<input ref={searchRef} type="text" placeholder="Search" onKeyDown={clearSearchTimeout} onKeyUp={(e) => searchCharacters(e)} />
+		<Layout title="Characters">
+			<div className="search-ui">
+				<input className="search-ui__input" ref={searchRef} type="text" placeholder="Search" onKeyDown={clearSearchTimeout} onKeyUp={(e) => searchCharacters(e)} />
+				<MagnifyingIcon className="svg search-ui__icon" />
+			</div>
 			<div>
 
 				{loading && <p>loading</p>}
@@ -108,7 +103,7 @@ function Characters() {
 			</div>
 			{prevUrl && <button onClick={() => displayCharacters(prevUrl)}>prev</button>}
 			{nextUrl && <button onClick={() => displayCharacters(nextUrl)}>next</button>}
-		</div>
+		</Layout>
 	);
 }
 
