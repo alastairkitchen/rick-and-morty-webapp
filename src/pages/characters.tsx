@@ -88,21 +88,28 @@ function Characters() {
 
 	return (
 		<Layout title="Characters">
-			<div className="search-ui">
-				<input className="search-ui__input" ref={searchRef} type="text" placeholder="Search" onKeyDown={clearSearchTimeout} onKeyUp={(e) => searchCharacters(e)} />
-				<MagnifyingIcon className="svg search-ui__icon" />
+			<div className="site-content__row">
+				<div className="site-content__container">
+					<div className="search-ui">
+						<input className="search-ui__input" ref={searchRef} type="text" placeholder="Search" onKeyDown={clearSearchTimeout} onKeyUp={(e) => searchCharacters(e)} />
+						<MagnifyingIcon className="svg search-ui__icon" />
+					</div>
+				</div>
 			</div>
-			<div>
-
-				{loading && <p>loading</p>}
-				{
-					characters ? characters.map((character: any, i: number) =>
-						<AvatarCard key={i} {...character} />
-					) : <p>no results</p>
-				}
+			<div className="site-content__row site-content--cyan">
+				<div className="site-content__container">
+					<div className="card-grid">
+						{loading && <p>loading</p>}
+						{
+							characters ? characters.map((character: any, i: number) =>
+								<AvatarCard key={i} {...character} />
+							) : <p>no results</p>
+						}
+					</div>
+					{prevUrl && <button onClick={() => displayCharacters(prevUrl)}>prev</button>}
+					{nextUrl && <button onClick={() => displayCharacters(nextUrl)}>next</button>}
+				</div>
 			</div>
-			{prevUrl && <button onClick={() => displayCharacters(prevUrl)}>prev</button>}
-			{nextUrl && <button onClick={() => displayCharacters(nextUrl)}>next</button>}
 		</Layout>
 	);
 }

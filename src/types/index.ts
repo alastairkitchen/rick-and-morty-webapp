@@ -1,3 +1,9 @@
+/* Types */
+export type Gender = "male" | "female" | "not-specified";
+export type MortalityStatus = "alive" | "dead" | "unknown";
+
+
+/* Interfaces */
 export interface LayoutProps {
 	children?: React.ReactNode,
 	title?: string,
@@ -24,4 +30,12 @@ export interface Character {
 export interface Origin {
 	name: string,
 	url?: string
+}
+
+export interface GenderIconProps<Gender> {
+	gender: Gender
+}
+
+export interface MortalityIconProps<MortalityStatus> {
+	mortalityStatus: MortalityStatus
 }

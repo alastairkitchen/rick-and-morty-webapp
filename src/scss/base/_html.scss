@@ -19,17 +19,6 @@ p {
   margin-bottom: 15px;
 }
 
-ul {
-  margin: 0;
-  margin-bottom: 15px;
-  padding-left: 1.5em;
-
-  li::marker {
-    color: $yellow;
-    font-size: 1.5em;
-  }
-}
-
 address {
   font-style: normal;
 }
@@ -43,21 +32,23 @@ input:is([type="text"], [type="date"], [type="email"], [type="month"], [type="nu
   stroke: currentcolor;
 }
 
+.svg--size {
+  width: 1em;
+  height: 1em;
+}
+
 .site-body {
   min-height: 100vh;
   height: 100%;
-  background: #00d1cb;
-  padding: 40px;
+  background: white;
 }
 
-.site-root {
+.site-content--cyan {
+  background-color: $cyan;
+}
+
+.site-content__container {
+
   max-width: 1000px;
   margin: 0 auto;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.site-content {
-  background-color: white;
-  padding: 15px;
 }

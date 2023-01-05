@@ -1,19 +1,24 @@
-import { Character } from '../types/index';
+import { Character, Gender, MortalityStatus } from '../types/index';
+import GenderIcon from './genderIcon';
+import MortalityIcon from './mortalityIcon';
+
+
 
 function AvatarCard(props: Character) {
 	return (
-		<div className="avatar-card">
+		<article className="avatar-card">
 			<div>
-				<img alt={props.name} src={props.image} />
+				<img className="avatar-card__image" alt={props.name} src={props.image} />
 			</div>
-			<div>
-				<p>{props.name}</p>
-				{props.species && <p>{props.species}</p>}
-				{props.gender && <p>{props.gender}</p>}
-				{props.status && <p>{props.status}</p>}
-				{/* {props.origin?.name && <p>{props.origin.name}</p>} */}
+			<div className="avatar-card__content">
+				<div className="avatar-card__content-inner">
+					<h4>{props.name}</h4>
+					{props.species && <p>{props.species} </p>}
+					{props.gender && <p>{props.gender} <GenderIcon gender={props.gender.toLowerCase() as Gender} /></p>}
+					{props.status && <p>{props.status}  <MortalityIcon mortalityStatus={props.status.toLowerCase() as MortalityStatus} /></p>}
+				</div>
 			</div>
-		</div>
+		</article>
 	);
 }
 

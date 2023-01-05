@@ -35,17 +35,25 @@ function Episodes() {
 
 	return (
 		<Layout title={`Name ${episode?.name}`}>
-			<Link to="/episodes/season/1/">Back</Link>
+			<div className="site-content__row">
+				<div className="site-content__container">
+					<Link to="/episodes/season/1/">Back</Link>
 
-			<p>Air Date {episode?.air_date}</p>
-			<p>Episode number {episode?.id}</p>
+					<p>Air Date {episode?.air_date}</p>
+					<p>Episode number {episode?.id}</p>
+				</div>
+			</div>
+			<div className="site-content__row site-content--cyan">
+				<div className="site-content__container">
+					<h2>Characters {characters ? characters.length : 0}</h2>
+					{
+						characters ? characters.map((character: any, i: number) =>
+							<AvatarCard key={i} {...character} />
+						) : <p>no results</p>
+					}
+				</div>
+			</div>
 
-			<h2>Characters {characters ? characters.length : 0}</h2>
-			{
-				characters ? characters.map((character: any, i: number) =>
-					<AvatarCard key={i} {...character} />
-				) : <p>no results</p>
-			}
 		</Layout>
 
 	);
