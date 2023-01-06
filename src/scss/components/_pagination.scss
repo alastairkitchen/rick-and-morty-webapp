@@ -1,0 +1,15 @@
+.pagination {
+	display: flex;
+}
+
+.pagination__button {
+	margin-inline-end: 10px;
+}
+
+.pagination-left__icon {
+	margin-right: 2px;
+}
+
+.pagination-right__icon {
+	margin-left: 3px;
+}

@@ -1,8 +1,8 @@
 .avatar-card {
 	display: flex;
-	background: white;
+	background-color: white;
 	border-radius: 6px;
-	border: 1px solid black;
+	font-size: 14px;
 }
 
 .avatar-card__image {
@@ -16,5 +16,15 @@
 }
 
 .avatar-card__content-inner {
-	padding: 5px;
+	padding: 15px 10px;
+}
+
+.avatar-card__title {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+	font-weight: $fontWeightBold;
+}
+
+.avatar-card__text {
+	margin-bottom: 10px;
 }

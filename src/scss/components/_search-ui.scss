@@ -1,6 +1,6 @@
 .search-ui {
 	display: flex;
-	font-size: 22px;
+	font-size: 16px;
 	margin-block-end: 30px;
 }
 
@@ -11,10 +11,11 @@
 }
 
 .search-ui__icon {
+	font-size: 22px;
 	width: 1em;
 	height: 1.5em;
 	margin-inline-start: 10px;
 	position: relative;
 	margin-left: calc(-1em - 10px);
-	top: 2px;
+	top: 5px;
 }

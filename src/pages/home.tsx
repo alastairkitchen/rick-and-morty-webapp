@@ -10,9 +10,9 @@ function Home() {
 				</div>
 			</div>
 
-			<div className="site-content__row site-content--cyan">
+			<div className="site-content__row site-content--cyan row-padding--medium">
 				<div className="site-content__container">
-					<nav>
+					<nav className="image-nav">
 						<ul className="image-nav__list">
 							<li className="image-nav__list-item">
 								<Link className="image-nav__anchor" to="/characters">Characters</Link>

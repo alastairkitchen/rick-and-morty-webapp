@@ -12,10 +12,10 @@ function AvatarCard(props: Character) {
 			</div>
 			<div className="avatar-card__content">
 				<div className="avatar-card__content-inner">
-					<h4>{props.name}</h4>
-					{props.species && <p>{props.species} </p>}
-					{props.gender && <p>{props.gender} <GenderIcon gender={props.gender.toLowerCase() as Gender} /></p>}
-					{props.status && <p>{props.status}  <MortalityIcon mortalityStatus={props.status.toLowerCase() as MortalityStatus} /></p>}
+					<h4 className="avatar-card__title">{props.name}</h4>
+					{props.species && <p className="avatar-card__content-text">{props.species} </p>}
+					{props.gender && <p className="avatar-card__content-text">{props.gender} <GenderIcon gender={props.gender.toLowerCase() as Gender} /></p>}
+					{props.status && <p className="avatar-card__content-text">{props.status}  <MortalityIcon mortalityStatus={props.status.toLowerCase() as MortalityStatus} /></p>}
 				</div>
 			</div>
 		</article>

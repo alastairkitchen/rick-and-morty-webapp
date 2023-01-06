@@ -3,6 +3,8 @@ import AvatarCard from '../components/AvatarCard';
 import { Character } from '../types/index';
 import Layout from '../components/layout';
 import { ReactComponent as MagnifyingIcon } from '../icons/magnifying-glass.svg';
+import { ReactComponent as ChevronLeftIcon } from '../icons/chevron-left.svg';
+import { ReactComponent as ChevronRightIcon } from '../icons/chevron-right.svg';
 
 
 function Characters() {
@@ -96,7 +98,7 @@ function Characters() {
 					</div>
 				</div>
 			</div>
-			<div className="site-content__row site-content--cyan">
+			<div className="site-content__row site-content--cyan row-padding--medium">
 				<div className="site-content__container">
 					<div className="card-grid">
 						{loading && <p>loading</p>}
@@ -106,8 +108,10 @@ function Characters() {
 							) : <p>no results</p>
 						}
 					</div>
-					{prevUrl && <button onClick={() => displayCharacters(prevUrl)}>prev</button>}
-					{nextUrl && <button onClick={() => displayCharacters(nextUrl)}>next</button>}
+					<div className="pagination">
+						{prevUrl && <button className="button pagination__button" onClick={() => displayCharacters(prevUrl)}><ChevronLeftIcon className="svg svg--size-portrait pagination-left__icon" />prev</button>}
+						{nextUrl && <button className="button pagination__button" onClick={() => displayCharacters(nextUrl)}>next <ChevronRightIcon className="svg svg--size-portrait pagination-right__icon" /></button>}
+					</div>
 				</div>
 			</div>
 		</Layout>
