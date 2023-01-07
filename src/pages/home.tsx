@@ -1,7 +1,20 @@
-import { Link } from "react-router-dom";
+import { ImageNavItem } from '../types/index';
 import Layout from '../components/layout';
+import ImageNav from '../components/imageNav';
 
 function Home() {
+
+	const homeItems: ImageNavItem[] = [
+		{
+			title: 'Characters',
+			url: '/characters'
+		},
+		{
+			title: 'Episodes',
+			url: '/episodes'
+		}
+	]
+
 	return (
 		<Layout title='Homepage' imageUrl="/images/rick-and-morty-header.jpg">
 			<div className="site-content__row">
@@ -12,16 +25,7 @@ function Home() {
 
 			<div className="site-content__row site-content--cyan row-padding--medium">
 				<div className="site-content__container">
-					<nav className="image-nav">
-						<ul className="image-nav__list">
-							<li className="image-nav__list-item">
-								<Link className="image-nav__anchor" to="/characters">Characters</Link>
-							</li>
-							<li className="image-nav__list-item">
-								<Link className="image-nav__anchor" to="/episodes">Episodes</Link>
-							</li>
-						</ul>
-					</nav>
+					<ImageNav items={homeItems} />
 				</div>
 			</div>
 

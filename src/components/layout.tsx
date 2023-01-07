@@ -1,4 +1,3 @@
-import { totalmem } from 'os';
 import * as React from 'react';
 import { LayoutProps } from '../types/index';
 import Header from './header';

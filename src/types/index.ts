@@ -39,3 +39,12 @@ export interface GenderIconProps<Gender> {
 export interface MortalityIconProps<MortalityStatus> {
 	mortalityStatus: MortalityStatus
 }
+
+export interface ImageNavItem {
+	title: string,
+	url: string
+}
+
+export interface ImageNavProps {
+	items: null | ImageNavItem[]
+}
