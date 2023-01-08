@@ -6,6 +6,27 @@
 @import "./base/typography";
 @import "./base/html";
 
+// Include parts of Bootstrap
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "~bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "~bootstrap/scss/variables";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+
+
+// 6. Optionally include any other parts as needed
+@import "~bootstrap/scss/tables";
+
 @import "./components/404";
 @import "./components/button";
 @import "./components/pagination";
@@ -18,3 +39,4 @@
 @import "./components/avatar-card";
 
 @import "./utils/row-padding";
+@import "./utils/bootstrap-override";

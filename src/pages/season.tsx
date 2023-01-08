@@ -34,28 +34,30 @@ function Season() {
 					<p>episodes</p>
 				</div>
 			</div>
-			<div className="site-content__row site-content--cyan">
+			<div className="site-content__row site-content--cyan row-padding--medium">
 				<div className="site-content__container">
-					<table>
-						<thead>
-							<tr>
-								<th>Episode</th>
-								<th>Name</th>
-								<th>Air Date</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							{episodes && episodes.map((episode: Episode) =>
+					<div className="table-responsive">
+						<table className="table table-bordered table-striped">
+							<thead>
 								<tr>
-									<td>{episode.episode}</td>
-									<td>{episode.name}</td>
-									<td>{episode.air_date}</td>
-									<td><Link to={`/episodes/${episode.id}`}>More info</Link></td>
+									<th scope="col">Episode</th>
+									<th scope="col">Name</th>
+									<th scope="col">Air Date</th>
+									<th scope="col"></th>
 								</tr>
-							)}
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								{episodes && episodes.map((episode: Episode, i) =>
+									<tr key={`episode-row-${i}`}>
+										<td scope="row">{episode.episode}</td>
+										<td>{episode.name}</td>
+										<td>{episode.air_date}</td>
+										<td><Link className="button" to={`/episodes/${episode.id}`}>More info</Link></td>
+									</tr>
+								)}
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</Layout>
