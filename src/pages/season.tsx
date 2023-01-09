@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { getEpisodes } from 'rickmortyapi'
 import { Episode } from 'rickmortyapi/dist/interfaces'
 import Layout from '../components/layout';
+import BackButton from '../components/backButton';
 
 
 function Season() {
@@ -28,10 +29,8 @@ function Season() {
 		<Layout title={`Season ${params.seasonId}`}>
 			<div className="site-content__row">
 				<div className="site-content__container">
-					<p>
-						<Link to="/episodes">Back</Link>
-					</p>
-					<p>episodes</p>
+					<BackButton url='/episodes' />
+					<h2 className="h2">episodes</h2>
 				</div>
 			</div>
 			<div className="site-content__row site-content--cyan row-padding--medium">

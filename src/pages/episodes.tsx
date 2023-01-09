@@ -46,7 +46,7 @@ function Episodes() {
 		<Layout title="Episodes">
 			<div className="site-content__row site-content--cyan row-padding--medium">
 				<div className="site-content__container">
-					<ImageNav items={episodesItems} />
+					<ImageNav id='epidode-items' items={episodesItems} />
 				</div>
 			</div>
 		</Layout>

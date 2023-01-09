@@ -46,5 +46,10 @@ export interface ImageNavItem {
 }
 
 export interface ImageNavProps {
+	id: string,
 	items: null | ImageNavItem[]
+}
+export interface BackButtonProps {
+	url: string,
+	text?: string
 }

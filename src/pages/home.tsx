@@ -25,7 +25,7 @@ function Home() {
 
 			<div className="site-content__row site-content--cyan row-padding--medium">
 				<div className="site-content__container">
-					<ImageNav items={homeItems} />
+					<ImageNav id='home-items' items={homeItems} />
 				</div>
 			</div>
 

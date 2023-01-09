@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { getEpisode, getCharacter } from 'rickmortyapi'
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Episode, Character } from 'rickmortyapi/dist/interfaces'
 import AvatarCard from '../components/AvatarCard';
+import BackButton from '../components/backButton';
 import Layout from '../components/layout';
-import { ReactComponent as ChevronLeftIcon } from '../icons/chevron-left.svg';
-
 
 function Episodes() {
 
@@ -33,21 +32,42 @@ function Episodes() {
 
 		// regex to get season ID
 		const pattern = /S(\d+)E(\d+)/; // get characters inbetween "S" and "D"
-		const result: any = episode.data?.episode.match(pattern);
-		setSeasonId(Math.round(result[1])); // e.g. "S03E09" sets season id to 3
+		const result: RegExpMatchArray | null = episode.data?.episode.match(pattern);
+		setSeasonId(result ? parseInt(result[1]) : undefined); // e.g. "S03E09" sets season id to 3
 	}
 
 	return (
-		<Layout title={`Name ${episode?.name}`}>
+		<Layout title={`${episode?.name}`}>
 			<div className="site-content__row">
 				<div className="site-content__container">
-					<div className="pagination">
-						<Link className="button pagination__button" to={`${seasonId ? `/episodes/season/${seasonId}/` : `/episodes`}`}> <ChevronLeftIcon className="svg svg--size-portrait pagination-left__icon" />Back</Link>
+					<BackButton url={`${seasonId ? `/episodes/season/${seasonId}/` : `/episodes`}`} />
+					<div className="table-responsive">
+						<table className="table table-bordered table-striped episode-table">
+							<tbody>
+								<tr>
+									<td className="episode-table__title" scope="row">Episode name</td>
+									<td>{episode?.name}</td>
+								</tr>
+								<tr>
+									<td className="episode-table__title" scope="row">Air Date</td>
+									<td>{episode?.air_date}</td>
+								</tr>
+								<tr>
+									<td className="episode-table__title" scope="row">Episode number</td>
+									<td>{episode?.id}</td>
+								</tr>
+								<tr>
+									<td className="episode-table__title" scope="row">Season</td>
+									<td>{seasonId}</td>
+								</tr>
+								<tr>
+									<td className="episode-table__title" scope="row">No of characters</td>
+									<td>{characters ? characters.length : 0}</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-
-					<p>Air Date {episode?.air_date}</p>
-					<p>Episode number {episode?.id}</p>
-					<h2>Characters {characters ? characters.length : 0}</h2>
+					<h2 className="h2">Characters list</h2>
 				</div>
 			</div>
 			<div className="site-content__row site-content--cyan row-padding--medium">

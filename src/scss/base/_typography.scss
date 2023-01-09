@@ -15,11 +15,15 @@ h6 {
 }
 
 .h1 {
-  font-family: $headerFontFamily;
   font-size: 32px;
   font-weight: $fontWeightBold;
   @include fluid-type(24px, 32px);
   margin-bottom: $siteSpacerLg;
+}
+
+.h2 {
+  font-size: 26px;
+  margin-bottom: 30px;
 }
 
 .bold {
