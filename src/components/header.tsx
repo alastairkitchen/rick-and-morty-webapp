@@ -19,13 +19,18 @@ function Header() {
 		if (headerRef.current === null)
 			return
 
-		if (window.scrollY > 100 && !headerRef.current.classList.contains('header--active')) {
-			headerRef.current.classList.add('header--active');
+		// TODO refactor for better performance, add as ref
+		const siteRootEl = document.querySelector('.site-root');
+
+		if (window.scrollY > 196 && !siteRootEl?.classList.contains('header--active')) {
+			siteRootEl?.classList.add('header--active');
 			return
 		}
 
-		if (window.scrollY < 100 && headerRef.current.classList.contains('header--active')) {
-			headerRef.current.classList.remove('header--active');
+		if (window.scrollY < 196 && siteRootEl?.classList.contains('header--active')) {
+			siteRootEl?.classList.remove('header--active');
+
+			return
 		}
 	}
 

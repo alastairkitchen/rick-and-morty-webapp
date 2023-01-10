@@ -30,7 +30,11 @@
 
 /* Modifiers */
 .header--active {
-	border-bottom-color: $lightGrey;
+	padding-top: 139px;
+
+	.header {
+		border-bottom-color: $lightGrey;
+	}
 
 	.header__inner {
 		flex-direction: row;

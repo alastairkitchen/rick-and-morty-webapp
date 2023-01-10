@@ -61,13 +61,13 @@ function Episodes() {
 									<td>{seasonId}</td>
 								</tr>
 								<tr>
-									<td className="episode-table__title" scope="row">No of characters</td>
+									<td className="episode-table__title" scope="row">No of characters in episode</td>
 									<td>{characters ? characters.length : 0}</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					<h2 className="h2">Characters list</h2>
+					<h2 className="h2">Characters in episode</h2>
 				</div>
 			</div>
 			<div className="site-content__row site-content--cyan row-padding--medium">
