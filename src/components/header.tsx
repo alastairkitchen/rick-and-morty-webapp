@@ -39,7 +39,9 @@ function Header() {
 			<header className="header" ref={headerRef}>
 				<div className="header__inner-wrapper">
 					<div className="header__inner">
-						<Link to='/'><img className="header__image" alt="rick and morty" src="/rick-and-morty-silhouette.jpg"></img></Link>
+						<div>
+							<Link to='/'><img className="header__image" alt="rick and morty" src="/rick-and-morty-silhouette.jpg"></img></Link>
+						</div>
 						<nav>
 							<ul className="navigation">
 								<li><Link to='/' className="navigation__anchor">Home</Link></li>

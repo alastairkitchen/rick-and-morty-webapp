@@ -51,7 +51,7 @@ function Season() {
 			<div className="site-content__row site-content--cyan row-padding--medium">
 				<div className="site-content__container">
 					<div className="table-responsive">
-						<table className="table table-bordered table-striped">
+						<table className="table table-bordered table-striped table--nowrap">
 							<thead>
 								<tr>
 									<th scope="col">Episode</th>
@@ -66,7 +66,7 @@ function Season() {
 										<td scope="row">{episode.episode}</td>
 										<td>{episode.name}</td>
 										<td>{episode.air_date}</td>
-										<td><Link className="button" to={`/episodes/${episode.id}`}>More info</Link></td>
+										<td><Link className="button button--inline" to={`/episodes/${episode.id}`}>More info</Link></td>
 									</tr>
 								)}
 							</tbody>

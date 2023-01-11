@@ -1,6 +1,5 @@
 .table {
 	--bs-border-color: rgb(0 0 0 / 20%);
-
 }
 
 tbody,
@@ -10,4 +9,12 @@ th,
 thead,
 tr {
 	border-style: solid;
+}
+
+.table--nowrap {
+
+	td {
+		white-space: nowrap;
+	}
+
 }

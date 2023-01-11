@@ -6,8 +6,8 @@ function GenderIcon(props: GenderIconProps<Gender>) {
 
 	return (
 		<>
-			{props.gender === 'male' && (<MaleIcon className='svg svg--size svg--position' />)}
-			{props.gender === 'female' && (<FemaleIcon className='svg svg--size svg--position' />)}
+			{props.gender === 'male' && (<MaleIcon className='svg svg--size' />)}
+			{props.gender === 'female' && (<FemaleIcon className='svg svg--size' />)}
 		</>
 	);
 }
