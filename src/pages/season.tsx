@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getEpisodes } from 'rickmortyapi'
-import { EpisodeData } from 'rickmortyapi/dist/interfaces'
+import { Episode } from 'rickmortyapi/dist/interfaces'
 import Layout from '../components/layout';
 import BackButton from '../components/backButton';
 
@@ -9,7 +9,7 @@ import BackButton from '../components/backButton';
 function Season() {
 
 	const params = useParams();
-	const [episodes, setEpisodes] = useState<EpisodeData[] | undefined>(undefined);
+	const [episodes, setEpisodes] = useState<Episode[] | undefined>(undefined);
 
 	const displayEpisodes = useCallback(async () => {
 		const episodes = await getEpisodes({
@@ -58,7 +58,7 @@ function Season() {
 								</tr>
 							</thead>
 							<tbody>
-								{episodes && episodes.map((episode: EpisodeData, i) =>
+								{episodes && episodes.map((episode: Episode, i) =>
 									<tr key={`episode-row-${i}`}>
 										<td>{episode.episode}</td>
 										<td>{episode.name}</td>

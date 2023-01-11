@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { getEpisode, getCharacter } from 'rickmortyapi'
 import { useParams } from "react-router-dom";
-import { EpisodeData, Character } from 'rickmortyapi/dist/interfaces'
+import { Character } from 'rickmortyapi/dist/interfaces'
+import { Episode as EpisodeData } from 'rickmortyapi/dist/interfaces'
 import AvatarCard from '../components/AvatarCard';
 import BackButton from '../components/backButton';
 import Layout from '../components/layout';
