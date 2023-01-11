@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getEpisodes } from 'rickmortyapi'
-import { Episode } from 'rickmortyapi/dist/interfaces'
+import { EpisodeData } from 'rickmortyapi/dist/interfaces'
 import Layout from '../components/layout';
 import BackButton from '../components/backButton';
 
@@ -9,21 +9,18 @@ import BackButton from '../components/backButton';
 function Season() {
 
 	const params = useParams();
-	const [episodes, setEpisodes] = useState<Episode[] | undefined>(undefined);
+	const [episodes, setEpisodes] = useState<EpisodeData[] | undefined>(undefined);
 
-
-	useEffect(() => {
-		displayEpisodes();
-	}, []);
-
-	async function displayEpisodes() {
+	const displayEpisodes = useCallback(async () => {
 		const episodes = await getEpisodes({
 			episode: `s0${params.seasonId}`
 		});
-
-		console.dir(episodes.data.results);
 		setEpisodes(episodes.data.results);
-	}
+	}, [params.seasonId])
+
+	useEffect(() => {
+		displayEpisodes();
+	}, [displayEpisodes]);
 
 	function renderIntro() {
 
@@ -61,9 +58,9 @@ function Season() {
 								</tr>
 							</thead>
 							<tbody>
-								{episodes && episodes.map((episode: Episode, i) =>
+								{episodes && episodes.map((episode: EpisodeData, i) =>
 									<tr key={`episode-row-${i}`}>
-										<td scope="row">{episode.episode}</td>
+										<td>{episode.episode}</td>
 										<td>{episode.name}</td>
 										<td>{episode.air_date}</td>
 										<td><Link className="button button--inline" to={`/episodes/${episode.id}`}>More info</Link></td>

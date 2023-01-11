@@ -13,7 +13,7 @@ function Header() {
 		return () => {
 			document.removeEventListener("scroll", debouncedApplyActive)
 		};
-	}, [])
+	}, [debouncedApplyActive])
 
 	function applyHeaderActive() {
 		if (headerRef.current === null)

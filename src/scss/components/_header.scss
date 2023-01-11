@@ -9,9 +9,7 @@
 .header__inner-wrapper {
 	max-width: 1000px;
 	margin: 0 auto;
-	padding-left: 15px;
-	padding-right: 15px;
-	padding-block-end: 30px;
+	padding: 15px 15px 30px 15px;
 }
 
 .header__inner {
@@ -22,8 +20,8 @@
 
 .header__image {
 	max-width: 125px;
-	border-radius: 50%;
-	aspect-ratio: 1 / 1;
+	filter: sepia(1);
+	border-radius: 10px;
 	margin-block-end: 15px;
 }
 
@@ -41,11 +39,11 @@
 	}
 
 	.header__inner-wrapper {
-		padding: 5px 15px 10px 15px;
+		padding: 7px 15px;
 	}
 
-
 	.header__image {
+		border-radius: 3px;
 		max-width: 40px;
 		margin-block-end: 0;
 	}

@@ -1,32 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { getEpisode, getCharacter } from 'rickmortyapi'
 import { useParams } from "react-router-dom";
-import { Episode, Character } from 'rickmortyapi/dist/interfaces'
+import { EpisodeData, Character } from 'rickmortyapi/dist/interfaces'
 import AvatarCard from '../components/AvatarCard';
 import BackButton from '../components/backButton';
 import Layout from '../components/layout';
 
-function Episodes() {
+function Episode() {
 
 	const params = useParams();
-	const [episode, setEpisode] = useState<Episode | undefined>(undefined);
+	const [episode, setEpisode] = useState<EpisodeData | undefined>(undefined);
 	const [characters, setCharacters] = useState<Character[] | undefined>(undefined);
 	const [seasonId, setSeasonId] = useState<number | undefined>(undefined);
 
-	useEffect(() => {
-		displayEpisode();
-	}, []);
-
-	async function displayEpisode() {
+	const displayEpisode = useCallback(async () => {
 		const episode = await getEpisode(Number(params.episodeId));
-		const characterIds = episode.data.characters.map((character) => {
+		const characterIds = episode.data.characters.map((character: string) => {
 			// const characters = 'https://rickandmortyapi.com/api/character/593';
 			// const splitCharacters = characters.split('/');
 			// console.dir(splitCharacters.at(-1));
 			return Number(character.split('/').at(-1));
 		});
 
-		const characters = await getCharacter(characterIds);
+		const characters: any = await getCharacter(characterIds);
 		setEpisode(episode.data);
 		setCharacters(characters.data);
 
@@ -34,7 +30,12 @@ function Episodes() {
 		const pattern = /S(\d+)E(\d+)/; // get characters inbetween "S" and "D"
 		const result: RegExpMatchArray | null = episode.data?.episode.match(pattern);
 		setSeasonId(result ? parseInt(result[1]) : undefined); // e.g. "S03E09" sets season id to 3
-	}
+	}, [params]);
+
+	useEffect(() => {
+		displayEpisode();
+	}, [displayEpisode]);
+
 
 	return (
 		<Layout title={`${episode?.name}`}>
@@ -45,23 +46,23 @@ function Episodes() {
 						<table className="table table-bordered table-striped episode-table">
 							<tbody>
 								<tr>
-									<td className="episode-table__title" scope="row">Episode name</td>
+									<td className="episode-table__title">Episode name</td>
 									<td>{episode?.name}</td>
 								</tr>
 								<tr>
-									<td className="episode-table__title" scope="row">Air Date</td>
+									<td className="episode-table__title">Air Date</td>
 									<td>{episode?.air_date}</td>
 								</tr>
 								<tr>
-									<td className="episode-table__title" scope="row">Episode number</td>
+									<td className="episode-table__title">Episode number</td>
 									<td>{episode?.id}</td>
 								</tr>
 								<tr>
-									<td className="episode-table__title" scope="row">Season</td>
+									<td className="episode-table__title">Season</td>
 									<td>{seasonId}</td>
 								</tr>
 								<tr>
-									<td className="episode-table__title" scope="row">No of characters in episode</td>
+									<td className="episode-table__title">No of characters in episode</td>
 									<td>{characters ? characters.length : 0}</td>
 								</tr>
 							</tbody>
@@ -87,5 +88,5 @@ function Episodes() {
 	);
 }
 
-export default Episodes;
+export default Episode;
 

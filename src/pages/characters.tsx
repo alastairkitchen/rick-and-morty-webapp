@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import AvatarCard from '../components/AvatarCard';
 import { Character } from '../types/index';
 import Layout from '../components/layout';
@@ -9,11 +9,6 @@ import { ReactComponent as ChevronRightIcon } from '../icons/chevron-right.svg';
 
 function Characters() {
 
-	// load characters
-	useEffect(() => {
-		displayCharacters();
-	}, []);
-
 	const searchRef = useRef<HTMLInputElement | null>(null);
 
 	const [characters, setCharacters] = useState<[Character] | null>(null);
@@ -21,6 +16,18 @@ function Characters() {
 	const [prevUrl, setPrevUrl] = useState<string | null>('');
 	const [loading, setLoading] = useState<boolean>(false);
 	let characterTimeout: any;
+
+	const displayCharacters = useCallback(async (url: (string | null) = 'https://rickandmortyapi.com/api/character') => {
+		setLoading(true);
+		await fetchCharacters(url);
+		setLoading(false);
+	}, []);
+
+	// load characters
+	useEffect(() => {
+		displayCharacters();
+	}, [displayCharacters]);
+
 
 	function fetchCharacters(url: string | null) {
 		if (url) {
@@ -61,12 +68,6 @@ function Characters() {
 				});
 
 		}
-	}
-
-	async function displayCharacters(url: (string | null) = 'https://rickandmortyapi.com/api/character') {
-		setLoading(true);
-		await fetchCharacters(url);
-		setLoading(false);
 	}
 
 	const searchCharacters = (e: React.KeyboardEvent) => {
